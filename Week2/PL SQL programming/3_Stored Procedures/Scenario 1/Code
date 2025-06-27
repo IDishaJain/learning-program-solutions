@@ -10,9 +10,12 @@ BEGIN
         WHERE AccountID = acc_rec.AccountID;
     END LOOP;
 END;
+/
 
 BEGIN
     ProcessMonthlyInterest;
 END;
+/
 
 SELECT * FROM Accounts WHERE AccountType = 'Savings';
+/
