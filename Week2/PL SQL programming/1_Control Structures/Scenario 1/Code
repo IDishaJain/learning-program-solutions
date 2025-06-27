@@ -1,0 +1,18 @@
+BEGIN
+    
+    FOR res IN ( SELECT CustomerID, DOB FROM Customers
+    ) LOOP
+       
+        IF MONTHS_BETWEEN(SYSDATE, res.DOB) / 12 > 60 THEN
+            UPDATE Loans
+            SET InterestRate = InterestRate - 1
+            WHERE CustomerID = res.CustomerID;
+
+            DBMS_OUTPUT.PUT_LINE('Discount applied for Customer ID: ' || res.CustomerID);
+        END IF;
+    END LOOP;
+END;
+
+
+SELECT LoanID, CustomerID, InterestRate, LoanAmount, StartDate, EndDate 
+FROM Loans;
