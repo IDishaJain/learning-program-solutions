@@ -1,0 +1,22 @@
+ALTER TABLE Customers ADD IsVIP VARCHAR2(5);
+
+
+BEGIN
+    FOR res IN ( SELECT CustomerID, Balance  FROM Customers
+    ) LOOP
+        IF res.Balance > 10000 THEN
+            UPDATE Customers
+            SET IsVIP = 'TRUE'
+            WHERE CustomerID = res.CustomerID;
+            DBMS_OUTPUT.PUT_LINE('Customer ID ' || res.CustomerID || ' marked as VIP.');
+        ELSE
+            UPDATE Customers
+            SET IsVIP = 'FALSE'
+            WHERE CustomerID = res.CustomerID;
+            DBMS_OUTPUT.PUT_LINE('Customer ID ' || res.CustomerID || ' is not VIP.');
+        END IF;
+    END LOOP;
+END;
+
+SELECT CustomerID, Name, Balance, IsVIP 
+FROM Customers;
