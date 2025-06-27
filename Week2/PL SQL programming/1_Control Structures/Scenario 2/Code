@@ -1,5 +1,5 @@
 ALTER TABLE Customers ADD IsVIP VARCHAR2(5);
-
+/
 
 BEGIN
     FOR res IN ( SELECT CustomerID, Balance  FROM Customers
@@ -17,6 +17,8 @@ BEGIN
         END IF;
     END LOOP;
 END;
+/
 
 SELECT CustomerID, Name, Balance, IsVIP 
 FROM Customers;
+/
