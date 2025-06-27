@@ -12,7 +12,8 @@ BEGIN
         END IF;
     END LOOP;
 END;
-
+/
 
 SELECT LoanID, CustomerID, InterestRate, LoanAmount, StartDate, EndDate 
 FROM Loans;
+/
