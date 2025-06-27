@@ -21,14 +21,16 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('Insufficient balance. Transfer failed.');
     END IF;
 END;
-
+/
 
 SET SERVEROUTPUT ON;
 
 BEGIN
     TransferFunds(2, 3, 500);
 END;
+/
 
 SELECT AccountID, CustomerID, AccountType, Balance 
 FROM Accounts
 WHERE AccountID IN (2, 3);
+/
