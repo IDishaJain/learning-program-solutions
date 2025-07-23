@@ -4,14 +4,13 @@ import About from './Components/About';
 import Contact from './Components/Contact';
 
 function App() {
-return (
-<div>
-<h1>Student Management Portal</h1>
-<Home />
-<About />
-<Contact />
-</div>
-);
+  return (
+    <div style={{ textAlign: "center", fontFamily: "Arial" }}>
+      <Home />
+      <About />
+      <Contact />
+    </div>
+  );
 }
 
 export default App;
